@@ -2,10 +2,6 @@ variable "account" {
   description = "Snowflake account name"
 }
 
-variable "organization" {
-  description = "Snowflake organization name"
-}
-
 variable "user" {
   description = "Snowflake username"
 }
