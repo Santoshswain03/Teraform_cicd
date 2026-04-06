@@ -8,12 +8,12 @@ terraform {
 }
 
 provider "snowflake" {
-  account = var.account   # ✅ use full account identifier
+  account = var.account
 
   user  = var.user
   role  = var.role
 
   authenticator = "SNOWFLAKE_JWT"
 
-  private_key = var.private_key
+  private_key = replace(var.private_key, "\\n", "\n")
 }
