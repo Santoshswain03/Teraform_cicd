@@ -12,3 +12,4 @@ resource "snowflake_schema" "demo_schema" {
   database = snowflake_database.demo_db.name
   name     = "DEMO_SCHEMA"
 }
+
