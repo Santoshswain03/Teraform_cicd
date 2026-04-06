@@ -1,12 +1,14 @@
-variable "snowflake_account" {
-  description = "Your Snowflake account identifier"
-  type        = string
+variable "account" {
+  description = "Snowflake account"
 }
 
-variable "snowflake_username" {
-  description = "Snowflake service user"
-  type        = string
-  default     = "TERRAFORM_USER"
+variable "user" {
+  description = "Snowflake username"
+}
+
+variable "role" {
+  description = "Snowflake role"
+  default     = "ACCOUNTADMIN"
 }
 
 variable "private_key" {

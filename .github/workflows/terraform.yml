@@ -18,9 +18,10 @@ jobs:
     if: github.event_name == 'pull_request'
 
     env:
-      TF_VAR_private_key: ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
       TF_VAR_account:     ${{ secrets.SNOWFLAKE_ACCOUNT }}
       TF_VAR_user:        ${{ secrets.SNOWFLAKE_USERNAME }}
+      TF_VAR_private_key: ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
+      TF_VAR_role:        ${{ secrets.SNOWFLAKE_ROLE }}
 
     steps:
       - name: Checkout code
@@ -31,6 +32,9 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
+
+      - name: Terraform Validate
+        run: terraform validate
 
       - name: Terraform Plan
         run: terraform plan -no-color
@@ -41,9 +45,10 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
 
     env:
-      TF_VAR_private_key: ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
       TF_VAR_account:     ${{ secrets.SNOWFLAKE_ACCOUNT }}
       TF_VAR_user:        ${{ secrets.SNOWFLAKE_USERNAME }}
+      TF_VAR_private_key: ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
+      TF_VAR_role:        ${{ secrets.SNOWFLAKE_ROLE }}
 
     steps:
       - name: Checkout code
@@ -54,6 +59,12 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
+
+      - name: Terraform Validate
+        run: terraform validate
+
+      - name: Terraform Plan
+        run: terraform plan -no-color
 
       - name: Terraform Apply
         run: terraform apply -auto-approve

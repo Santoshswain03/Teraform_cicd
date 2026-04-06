@@ -1,16 +1,14 @@
-resource "snowflake_database" "dev_db" {
-  name    = "DEV_DATABASE"
-  comment = "Created by Terraform"
-}
-
-resource "snowflake_schema" "dev_schema" {
-  database = snowflake_database.dev_db.name
-  name     = "DEV_SCHEMA"
-}
-
-resource "snowflake_warehouse" "dev_wh" {
-  name           = "DEV_WAREHOUSE"
-  warehouse_size = "x-small"
+resource "snowflake_warehouse" "demo_wh" {
+  name           = "DEMO_WH"
+  warehouse_size = "XSMALL"
   auto_suspend   = 60
 }
 
+resource "snowflake_database" "demo_db" {
+  name = "DEMO_DB"
+}
+
+resource "snowflake_schema" "demo_schema" {
+  database = snowflake_database.demo_db.name
+  name     = "DEMO_SCHEMA"
+}
