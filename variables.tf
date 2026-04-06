@@ -9,8 +9,7 @@ variable "snowflake_username" {
   default     = "TERRAFORM_USER"
 }
 
-variable "private_key_path" {
-  description = "Path to private key file"
-  type        = string
+variable "private_key" {
+  description = "Snowflake private key"
   sensitive   = true
 }
