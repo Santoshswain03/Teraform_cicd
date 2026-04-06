@@ -8,10 +8,13 @@ terraform {
 }
 
 provider "snowflake" {
-  account  = var.account
-  user     = var.user
-  role     = var.role
+  account_name      = var.account
+  organization_name = var.organization   # NEW (required now)
 
-  # ✅ Fixed (no more private_key_path issue)
+  user  = var.user
+  role  = var.role
+
+  authenticator = "SNOWFLAKE_JWT"   # ✅ VERY IMPORTANT
+
   private_key = var.private_key
 }
