@@ -11,5 +11,5 @@ provider "snowflake" {
   account   = var.snowflake_account
   username  = var.snowflake_username
   role      = "TERRAFORM_ROLE"
-  private_key_path = var.private_key_path
+  private_key = var.private_key
 }

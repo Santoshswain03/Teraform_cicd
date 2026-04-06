@@ -18,9 +18,9 @@ jobs:
     if: github.event_name == 'pull_request'
 
     env:
-      SNOWFLAKE_ACCOUNT:     ${{ secrets.SNOWFLAKE_ACCOUNT }}
-      SNOWFLAKE_USER:        ${{ secrets.SNOWFLAKE_USERNAME }}
-      SNOWFLAKE_PRIVATE_KEY: ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
+      TF_VAR_private_key: ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
+      TF_VAR_account:     ${{ secrets.SNOWFLAKE_ACCOUNT }}
+      TF_VAR_user:        ${{ secrets.SNOWFLAKE_USERNAME }}
 
     steps:
       - name: Checkout code
@@ -41,9 +41,9 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
 
     env:
-      SNOWFLAKE_ACCOUNT:     ${{ secrets.SNOWFLAKE_ACCOUNT }}
-      SNOWFLAKE_USER:        ${{ secrets.SNOWFLAKE_USERNAME }}
-      SNOWFLAKE_PRIVATE_KEY: ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
+      TF_VAR_private_key: ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
+      TF_VAR_account:     ${{ secrets.SNOWFLAKE_ACCOUNT }}
+      TF_VAR_user:        ${{ secrets.SNOWFLAKE_USERNAME }}
 
     steps:
       - name: Checkout code
