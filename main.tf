@@ -13,3 +13,4 @@ resource "snowflake_warehouse" "dev_wh" {
   warehouse_size = "x-small"
   auto_suspend   = 60
 }
+
