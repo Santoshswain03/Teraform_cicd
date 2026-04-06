@@ -1,5 +1,9 @@
 variable "account" {
-  description = "Snowflake account"
+  description = "Snowflake account name"
+}
+
+variable "organization" {
+  description = "Snowflake organization name"
 }
 
 variable "user" {
@@ -8,7 +12,6 @@ variable "user" {
 
 variable "role" {
   description = "Snowflake role"
-  default     = "ACCOUNTADMIN"
 }
 
 variable "private_key" {
